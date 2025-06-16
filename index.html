@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SETEC 2024 - Colégio Barbosa Ferraz</title>
+  <style>
+    /* CSS Custom Properties for consistent theming */
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #374151;
+      --color-text-muted: #6b7280;
+      --color-primary: #111827;
+      --color-accent: #1f2937;
+      --color-button-bg: #111827;
+      --color-button-text: #ffffff;
+      --border-radius: 0.75rem;
+      --shadow-light: rgba(0, 0, 0, 0.05);
+      --font-sans: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    /* Import Google Font Poppins */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: var(--color-primary);
+      outline: none;
+      transform: scale(1.05);
+    }
+    h1, h2, h3 {
+      font-weight: 800;
+      margin: 0 0 1rem 0;
+      color: var(--color-primary);
+      line-height: 1.1;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+    p {
+      color: var(--color-text-muted);
+      font-size: 1.125rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Logo top space container */
+    .logo-top-container {
+      background-color: var(--color-bg);
+      padding: 1.5rem 0;
+      box-shadow: 0 2px 6px var(--shadow-light);
+      text-align: center;
+      user-select: none;
+    }
+    .logo-top-container img {
+      max-height: 80px;
+      width: auto;
+      vertical-align: middle;
+    }
+    .logo-top-text {
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      font-family: var(--font-sans);
+      letter-spacing: 0.05em;
+      margin: 0;
+      line-height: 1;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--color-bg);
+      box-shadow: 0 2px 6px var(--shadow-light);
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 600;
+    }
+    .nav-links a {
+      padding: 0.25rem 0.5rem;
+    }
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0 4rem 0;
+      text-align: center;
+    }
+    .hero h1 {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p {
+      font-weight: 600;
+      color: var(--color-text-muted);
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 3rem;
+    }
+    .btn-primary {
+      background-color: var(--color-button-bg);
+      color: var(--color-button-text);
+      font-weight: 700;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 1.125rem;
+      box-shadow: 0 6px 12px rgba(17,24,39,0.25);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #22272e;
+      transform: scale(1.05);
+      outline: none;
+    }
+    /* Sections */
+    section {
+      padding: 4rem 0 5rem 0;
+    }
+    /* About Section */
+    #about {
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Features grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    /* Card style */
+    .card {
+      background-color: var(--color-bg);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: 0 4px 12px var(--shadow-light);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+      outline: none;
+    }
+    .card h3 {
+      margin-bottom: 0.75rem;
+      color: var(--color-primary);
+    }
+    .card p {
+      margin-bottom: 0;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      padding-bottom: 3rem;
+      user-select: none;
+    }
+    /* Responsive text scaling */
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .btn-primary {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+      }
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo area with space on top -->
+  <div class="logo-top-container" role="banner" aria-label="Logo Colégio Barbosa Ferraz">
+    <img src="Imagens/Borzuk.png" alt="Logo Colégio Barbosa Ferraz" />
+
+    <p class="logo-top-container"tabindex="0">Colégio Barbosa Ferraz</p>
+  </div>
+
+  <header>
+    <div class="container" role="banner">
+      <nav aria-label="Primary navigation">
+        <div class="logo" tabindex="0">SETEC 2024</div>
+        <div class="nav-links">
+          <a href="#about" tabindex="0">Sobre</a>
+          <a href="#programacao" tabindex="0">Programação</a>
+          <a href="#localizacao" tabindex="0">Localização</a>
+          <a href="#contato" tabindex="0">Contato</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" role="region" aria-labelledby="hero-title">
+      <h1 id="hero-title">SETEC 2024 — Evento anual do Colégio Barbosa Ferraz</h1>
+      <p><strong>Acontecerá em novembro de 2024!</strong></p>
+      <p>Uma celebração do conhecimento, inovação e cultura em Ivaiporã. Venha participar das atrações e workshops!</p>
+      <button class="btn-primary" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})" aria-label="Ir para contato e inscrições">Inscreva-se Já</button>
+    </section>
+
+    <section id="about" role="region" aria-labelledby="about-title">
+      <h2 id="about-title">Sobre a SETEC</h2>
+      <p>A SETEC é um evento anual que reúne estudantes, professores e profissionais para compartilhar conhecimento tecnológico, cultural e educacional no Colégio Barbosa Ferraz, em Ivaiporã.</p>
+      <div class="features" aria-label="Principais destaques do evento">
+        <article class="card" tabindex="0">
+          <h3>Workshops</h3>
+          <p>Oficinas interativas sobre tecnologia, ciência, robótica, programação e muito mais para todas as idades.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Palestras</h3>
+          <p>Apresentações inspiradoras com especialistas nas áreas de educação, tecnologia e inovação.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Exposições</h3>
+          <p>Exposição de projetos dos alunos, demonstrações tecnológicas e mostras culturais.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Confraternização</h3>
+          <p>Momentos de integração, troca de experiências e diversão para toda a comunidade escolar.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="programacao" role="region" aria-labelledby="programacao-title">
+      <h2 id="programacao-title">Programação</h2>
+      <div class="features" aria-label="Agenda do evento">
+        <article class="card" tabindex="0">
+          <h3>Dia 1 - Abertura</h3>
+          <p>Cerimônia de abertura, palestras iniciais e recepção dos participantes.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Dia 2 - Workshops</h3>
+          <p>Oficinas práticas em diferentes áreas do conhecimento tecnológico e científico.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Dia 3 - Exposições e Encerramento</h3>
+          <p>Mostra de projetos, premiações e encerramento oficial do evento.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="localizacao" role="region" aria-labelledby="localizacao-title">
+      <h2 id="localizacao-title">Localização</h2>
+      <p>Colégio Barbosa Ferraz<br />Rua Principal, 123 - Ivaiporã - PR, Brasil</p>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.1520906693095!2d-51.374024684458335!3d-23.971112368113692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecc32e60dee505%3A0x73c66b130b91d9af!2sCol%C3%A9gio%20Barbosa%20Ferraz!5e0!3m2!1spt-BR!2sbr!4v1687413386823!5m2!1spt-BR!2sbr" 
+        width="100%" height="300" style="border:0; border-radius: var(--border-radius);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de localização do Colégio Barbosa Ferraz"></iframe>
+    </section>
+
+    <section id="contato" role="region" aria-labelledby="contato-title">
+      <h2 id="contato-title">Contato & Inscrição</h2>
+      <p>Interessado em participar da SETEC 2024? Preencha o formulário abaixo para receber mais informações e garantir sua vaga.</p>
+      <form action="#" method="post" aria-label="Formulário de contato e inscrição">
+        <label for="nome">Nome completo</label><br />
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" required style="font-size:1rem; padding:0.5rem; margin-bottom:1rem; width:100%; max-width:400px; border-radius: var(--border-radius); border: 1px solid #ccc;" /><br />
+        <label for="email">E-mail</label><br />
+        <input type="email" id="email" name="email" placeholder="seu@email.com" required style="font-size:1rem; padding:0.5rem; margin-bottom:1rem; width:100%; max-width:400px; border-radius: var(--border-radius); border: 1px solid #ccc;" /><br />
+        <button type="submit" class="btn-primary" style="margin-top: 0;">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Colégio Barbosa Ferraz - SETEC Ivaiporã. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
+
+```
